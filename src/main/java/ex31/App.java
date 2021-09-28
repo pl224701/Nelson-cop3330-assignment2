@@ -9,26 +9,8 @@ import java.util.Scanner;
 
 public class App
 {
-    public static void main(String[] args)
+    public static void output(int age, int resting_pulse)
     {
-        Scanner sc = new Scanner(System.in);
-        String r_pulse="a";
-        String Age = "a";
-        boolean pulse = r_pulse.matches("[0-9]+");
-        boolean Age1 = r_pulse.matches("[0-9]+");
-        while(!Age1 || !pulse)
-        {
-            System.out.print("Resting Pulse: ");
-            r_pulse = sc.nextLine();
-            pulse = r_pulse.matches("[0-9]+");
-            System.out.print("Age: ");
-            Age = sc.nextLine();
-            Age1 = Age.matches("[0-9]+");
-            if(!Age1 || !pulse)
-                System.out.println("Sorry. One of your inputs is not valid.");
-        }
-        int resting_pulse = Integer.parseInt(r_pulse);
-        int age = Integer.parseInt(Age);
         float TargetHeartRate;
         System.out.println("Intensity    | Rate");
         System.out.println("-------------|--------");
@@ -37,5 +19,25 @@ public class App
             TargetHeartRate = (((220-age)-resting_pulse)*((55+5*i)/100)+resting_pulse);
             System.out.format("%2.0f%% %10s %.0f bpm\n",55+5*i,'|',TargetHeartRate);
         }
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String r_pulse = "a";
+        String Age = "a";
+        boolean pulse = r_pulse.matches("[0-9]+");
+        boolean Age1 = r_pulse.matches("[0-9]+");
+        while (!Age1 || !pulse) {
+            System.out.print("Resting Pulse: ");
+            r_pulse = sc.nextLine();
+            pulse = r_pulse.matches("[0-9]+");
+            System.out.print("Age: ");
+            Age = sc.nextLine();
+            Age1 = Age.matches("[0-9]+");
+            if (!Age1 || !pulse)
+                System.out.println("Sorry. One of your inputs is not valid.");
+        }
+        int resting_pulse = Integer.parseInt(r_pulse);
+        int age = Integer.parseInt(Age);
+        output(age, resting_pulse);
     }
 }
