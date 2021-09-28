@@ -8,12 +8,6 @@ import java.util.*;
 
 public class App
 {
-    public static double calculateMonthsUntilPaidOff(float balance, float APR, float payment)
-    {
-        double n = (-1.0/30.0) * (Math.log(1 + ((balance/payment)) * ( 1 - (Math.pow((1 + APR), 30)))))
-                /Math.log(1 + APR);
-        return n;
-    }
     public static void main(String[] args)
     {
         Scanner sc = new Scanner(System.in);
@@ -23,8 +17,8 @@ public class App
         float APR = sc.nextInt();
         System.out.print("What is the monthly payment you can make? ");
         float payment = sc.nextInt();
-        double months = calculateMonthsUntilPaidOff(balance, APR, payment);
-        System.out.printf("It will take you %.0f months to pay off this card",months);
+        double months = PaymentCalculator.calculateMonthsUntilPaidOff(balance, APR, payment);
+        System.out.printf("It will take you %.0f months to pay off this card",Math.ceil(months));
     }
 }
 
