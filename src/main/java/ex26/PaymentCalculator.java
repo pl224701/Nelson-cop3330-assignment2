@@ -4,7 +4,8 @@ public class PaymentCalculator
 {
     public static double calculateMonthsUntilPaidOff(float balance, float APR, float payment)
     {
-        double n = -((1.0/30.0)*Math.log(1+balance/payment*(1-(1+APR/365.0))/Math.log(1+APR/365.0)));
-        return n;
+        double months = (-1.0/30.0) * (Math.log(1 + ((balance/payment)) * (1 - (Math.pow((1 + APR/36500), 30)))))
+                /Math.log(1 + APR/36500);
+        return months;
     }
 }
