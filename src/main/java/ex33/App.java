@@ -10,6 +10,12 @@ import java.util.Scanner;
 
 public class App
 {
+    public static void winner(String[] str)
+    {
+        Random rand = new Random();
+        int r_number = rand.nextInt(4);
+        System.out.printf("\n%s",str[r_number]);
+    }
     public static void main(String[] args)
     {
         Scanner sc = new Scanner(System.in);
@@ -20,8 +26,6 @@ public class App
         String[] str = {str1,str2,str3,str4};
         System.out.print("What's your question?\n> ");
         String input = sc.nextLine();
-        Random rand = new Random();
-        int r_number = rand.nextInt(4);
-        System.out.printf("\n%s",str[r_number]);
+        winner(str);
     }
 }
